@@ -1,28 +1,23 @@
-:root { color-scheme: dark; }
-body { margin:0; font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial; background:#ffffff; color:#000000; }
-
-.wrap { max-width: 1200px; margin:0 auto; padding:24px; }
-header h1 { margin:0 0 6px 0; font-size:28px; }
-header p { margin:0 0 18px 0; color: rgba(238,238,255,.72); }
-h1 {
-  color: #000;
+:root { color-scheme: light; } /* WICHTIG: war dark */
+body {
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background:#ffffff;
+  color:#000000;
 }
 
-header p,
-.label,
-.meta,
-.muted,
-.small {
-  color: #000;
-}
-.layout { display:flex; gap:24px; align-items:flex-start; flex-wrap:wrap; }
+.wrap { max-width: 1400px; margin:0 auto; padding:24px; }
+header h1 { margin:0 0 6px 0; font-size:34px; color:#000; }
+header p { margin:0 0 18px 0; color:#333; }
+
+.layout { display:flex; gap:36px; align-items:flex-start; flex-wrap:nowrap; }
 
 /* Bühne fürs Grid */
 .paletteStage{
-  flex: 1 1 760px;
-  min-width: 640px;
+  flex: 1 1 auto;
+  min-width: 900px;
   border: none;
-  padding: 10px 0;
+  padding: 0;
   background: transparent;
 }
 
@@ -30,29 +25,30 @@ header p,
 .strips{
   display: grid;
   grid-template-columns: repeat(43, 1fr);
-  gap: 10px;            /* größerer Abstand */
+  gap: 2px;                 /* MINIMALER Abstand */
   width: 100%;
-  max-width: 450px;    /* <<< entscheidend: kleiner = größere Felder */
-  margin: 0 auto;
+  max-width: 1200px;        /* groß lassen, sonst wird’s klein */
+  margin: 0;
 }
 
-/* jedes Farbfeld ist 16:9 */
+/* jedes Farbfeld: WIRKLICH GRÖSSER durch feste Höhe */
 .chip{
-  aspect-ratio: 16 / 9;
-  border-radius: 0;
-  background: #f5f5f5;
-  border: 1px solid #888;
+  height: 12px;             /* <- HIER größer/kleiner machen (z.B. 10–18) */
+  border-radius: 0;         /* eckig */
+  background: #f2f2f2;
+  border: 1px solid #cfcfcf;
+  box-sizing: border-box;
 }
 
-/* Blink für aktives Feld */
+/* Active Feld: schwarze Markierung */
 .chip.active{
-  outline: 2px solid rgba(255,255,255,.55);
-  outline-offset: 1px;
+  outline: 2px solid #000;
+  outline-offset: 0px;
   animation: blink 0.9s infinite;
 }
 @keyframes blink{
   0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.6); }
+  50% { filter: brightness(1.25); }
 }
 
 /* Dummy-Slots: komplett unsichtbar */
@@ -63,7 +59,7 @@ header p,
 }
 
 /* Panel rechts */
-.panel { width: 320px; min-width: 280px; display:flex; flex-direction:column; gap:12px; }
+.panel { width: 320px; min-width: 280px; display:flex; flex-direction:column; gap:14px; }
 
 #ball{
   width: 150px;
@@ -74,24 +70,24 @@ header p,
 }
 
 .row { display:flex; align-items:center; gap:10px; }
-.label { font-size: 13px; color: rgba(238,238,255,.72); width: 78px; }
-.swatch { width: 36px; height: 22px; border-radius: 7px; border:1px solid rgba(255,255,255,.18); background:#fff; }
+.label { font-size: 13px; color:#000; width: 78px; }
+.swatch { width: 36px; height: 22px; border-radius: 6px; border:1px solid #000; background:#fff; }
 
 button{
   background: #ffffff;
-  color: #000000;          /* ← schwarz */
+  color: #000000 !important;     /* <- erzwingt schwarz */
   border: 1px solid #000;
-  padding: 10px 12px;
-  border-radius: 12px;
+  padding: 10px 14px;
+  border-radius: 999px;
   cursor: pointer;
-  font-weight: 500;
+  font-weight: 600;
 }
 
 button:hover{
   background: #000;
-  color: #fff;
+  color: #fff !important;
 }
 
-.meta { margin-top:4px; display:flex; flex-direction:column; gap:6px; }
-.muted { color: rgba(238,238,255,.62); }
-.small { font-size: 12px; line-height: 1.35; }
+.meta { margin-top:6px; display:flex; flex-direction:column; gap:6px; color:#333; }
+.muted { color:#555; }
+.small { font-size: 12px; line-height: 1.35; color:#777; }
