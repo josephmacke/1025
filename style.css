@@ -192,25 +192,26 @@ input[type="range"]{
 header { margin-bottom: 22px; }          /* <-- Abstand zwischen Titel und Inhalt */
 .layout { margin-top: 10px; }            /* optional, extra Luft */
 
-/* Title styling like reference image */
-header h1.title {
-  margin: 0;
-  font-size: 44px;                       /* ggf. anpassen */
-  font-weight: 300;                      /* feiner */
-  letter-spacing: 0.2px;
-  color: #111;
+/* --- FORCE title style --- */
+
+h1.title {
+  font-size: 44px !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.3px;
+  color: #111 !important;
+  margin-bottom: 22px;
 }
 
-/* Only the "1025" part: italic + strikethrough */
-header h1.title .titleNum {
-  font-style: italic;
-  font-weight: 300;
-  text-decoration: line-through;
-  text-decoration-thickness: 2px;        /* ggf. 1px, wenn zu stark */
+h1.title .titleNum {
+  font-style: italic !important;
+  font-weight: 300 !important;
+  text-decoration: line-through !important;
+  text-decoration-thickness: 2px;
   text-decoration-color: rgba(0,0,0,.85);
 }
 
-/* Make the rest "colors" a little lighter too (optional) */
-header h1.title {
-  font-style: normal;
+/* spacing below header */
+header {
+  margin-bottom: 26px;
 }
+
