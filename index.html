@@ -16,23 +16,21 @@
     <div class="layout">
       <!-- LEFT: GRID -->
       <div class="paletteStage">
-        <div id="strips" class="strips" aria-label="1025 color grid"></div>
+        <div id="strips" class="strips"></div>
       </div>
 
       <!-- RIGHT: PANEL -->
       <aside class="panel">
-        <!-- Color wheel (canvas) -->
-        <canvas id="ball" width="220" height="220" aria-label="color wheel"></canvas>
+        <!-- IMPORTANT: must be canvas -->
+        <canvas id="ball" width="220" height="220"></canvas>
 
-        <!-- Picked color + commit -->
         <div class="row">
           <div class="label">Ausgewählt</div>
-          <div id="swatch" class="swatch" aria-label="picked color swatch"></div>
+          <div id="swatch" class="swatch"></div>
           <button id="commit" type="button">Einloggen</button>
         </div>
 
-        <!-- Sliders -->
-        <div class="sliders" aria-label="controls">
+        <div class="sliders">
           <div class="sliderRow">
             <div class="sliderLabel">Sättigung</div>
             <input id="sat" type="range" min="0" max="100" value="100" />
@@ -46,7 +44,6 @@
           </div>
         </div>
 
-        <!-- Meta -->
         <div class="meta">
           <div><span class="muted">View:</span> <span id="metaGrid"></span></div>
           <div><span class="muted">Active:</span> <span id="metaActive"></span></div>
