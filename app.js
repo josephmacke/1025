@@ -3,8 +3,8 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 /** =========================
  *  1) SUPABASE (eintragen)
  *  ========================= */
-const SUPABASE_URL = "PASTE_YOUR_SUPABASE_URL";
-const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_KEY";
+const SUPABASE_URL = "https://rmgofrcgqbgrhpcvqwtu.supabase.co";
+const SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InJtZ29mcmNncWJncmhwY3Zxd3R1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjgxNTM0MDMsImV4cCI6MjA4MzcyOTQwM30.WfyQEii6pTtrvQwWDrzd5udRASpzBXtFYhrBBebRL1M";
 const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 /** =========================
