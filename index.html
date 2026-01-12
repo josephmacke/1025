@@ -4,51 +4,58 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>1025 colors</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="./style.css" />
 </head>
+
 <body>
   <div class="wrap">
     <header>
       <h1>1025 colors</h1>
-      
     </header>
 
-    <main class="layout">
-      <section class="paletteStage">
-        <div id="strips" class="strips"></div>
-      </section>
+    <div class="layout">
+      <!-- LEFT: GRID -->
+      <div class="paletteStage">
+        <div id="strips" class="strips" aria-label="1025 color grid"></div>
+      </div>
 
-      <section class="panel">
-        <canvas id="ball" width="260" height="260"></canvas>
+      <!-- RIGHT: PANEL -->
+      <aside class="panel">
+        <!-- Color wheel (canvas) -->
+        <canvas id="ball" width="220" height="220" aria-label="color wheel"></canvas>
 
+        <!-- Picked color + commit -->
         <div class="row">
           <div class="label">Ausgewählt</div>
-          <div id="swatch" class="swatch"></div>
-          <button id="commit">Einloggen</button>
+          <div id="swatch" class="swatch" aria-label="picked color swatch"></div>
+          <button id="commit" type="button">Einloggen</button>
         </div>
-        <div class="sliders">
-  <div class="sliderRow">
-    <div class="sliderLabel">Sättigung</div>
-    <input id="sat" type="range" min="0" max="100" value="100" />
-    <div id="satVal" class="sliderVal">100%</div>
-  </div>
 
-  <div class="sliderRow">
-    <div class="sliderLabel">Helligkeit</div>
-    <input id="val" type="range" min="0" max="100" value="100" />
-    <div id="valVal" class="sliderVal">100%</div>
-  </div>
-</div>
+        <!-- Sliders -->
+        <div class="sliders" aria-label="controls">
+          <div class="sliderRow">
+            <div class="sliderLabel">Sättigung</div>
+            <input id="sat" type="range" min="0" max="100" value="100" />
+            <div id="satVal" class="sliderVal">100%</div>
+          </div>
 
+          <div class="sliderRow">
+            <div class="sliderLabel">Helligkeit</div>
+            <input id="val" type="range" min="0" max="100" value="100" />
+            <div id="valVal" class="sliderVal">100%</div>
+          </div>
+        </div>
+
+        <!-- Meta -->
         <div class="meta">
           <div><span class="muted">View:</span> <span id="metaGrid"></span></div>
           <div><span class="muted">Active:</span> <span id="metaActive"></span></div>
-          <div class="muted small">Live via Supabase Realtime (Postgres Changes).</div>
+          <div class="small muted">Live via Supabase Realtime (Postgres Changes).</div>
         </div>
-      </section>
-    </main>
+      </aside>
+    </div>
   </div>
 
-  <script type="module" src="app.js"></script>
+  <script type="module" src="./app.js"></script>
 </body>
 </html>
