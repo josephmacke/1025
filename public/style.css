@@ -1,0 +1,217 @@
+:root { color-scheme: light; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  background: #f6f6f3;          /* Off-white */
+  color: #000000;
+}
+
+.wrap {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+header h1 {
+  margin: 0 0 6px 0;
+  font-size: 32px;
+  color: #000;
+}
+
+header p {
+  margin: 0 0 18px 0;
+  color: #000;
+}
+
+.label,
+.meta,
+.muted,
+.small {
+  color: #000;
+}
+
+.layout {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+/* Bühne fürs Grid */
+.paletteStage {
+  flex: 1 1 900px;
+  min-width: 720px;
+  border: none;
+  padding: 10px 0;
+  background: transparent;
+}
+
+/* 16:9 Ansicht: 43 x 24 */
+.strips {
+  display: grid;
+  grid-template-columns: repeat(43, 1fr);
+  gap: 2px;                     /* minimaler Abstand */
+  width: 100%;
+  max-width: 1100px;            /* größer = größere Felder */
+  margin: 0 auto;
+}
+
+/* Farbfelder */
+.chip {
+  aspect-ratio: 16 / 9;
+  border-radius: 0;             /* eckig */
+  background: #111;             /* schwarz */
+  border: none;
+}
+
+/* aktives Feld */
+.chip.active {
+  outline: 2px solid #000;
+  outline-offset: 0;
+  animation: blink 0.9s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.6); }
+}
+
+/* Dummy-Slots */
+.chip.empty {
+  visibility: hidden;
+  border: none;
+  background: transparent;
+}
+
+/* Panel rechts */
+.panel {
+  width: 320px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Farb-Kugel */
+#ball {
+  width: 150px;
+  height: 150px;
+  background: #fff;
+  border: none;                /* kein Rand */
+  border-radius: 50%;
+  overflow: hidden;            /* verhindert Pixel-Saum */
+  display: block;
+}
+
+#ball canvas,
+#ball img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 50%;
+}
+
+/* UI */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.label {
+  font-size: 13px;
+  width: 78px;
+}
+
+.swatch {
+  width: 36px;
+  height: 22px;
+  border-radius: 0;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+/* Button */
+button {
+  background: #ffffff;
+  color: #000000;              /* schwarz */
+  border: 1px solid #000;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+button:hover {
+  background: #000;
+  color: #fff;
+}
+
+.meta {
+  margin-top: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.small {
+  font-size: 12px;
+  line-height: 1.35;
+}
+.sliders{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.sliderRow{
+  display: grid;
+  grid-template-columns: 86px 1fr 52px;
+  align-items: center;
+  gap: 10px;
+}
+
+.sliderLabel{
+  font-size: 13px;
+}
+
+.sliderVal{
+  font-size: 12px;
+  color: #333;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+input[type="range"]{
+  width: 100%;
+}
+
+/* Off-white already set? keep it. Add spacing below header */
+header { margin-bottom: 22px; }          /* <-- Abstand zwischen Titel und Inhalt */
+.layout { margin-top: 10px; }            /* optional, extra Luft */
+
+/* --- FORCE title style --- */
+
+h1.title {
+  font-size: 44px !important;
+  font-weight: 300 !important;
+  letter-spacing: 0.3px;
+  color: #111 !important;
+  margin-bottom: 22px;
+}
+
+h1.title .titleNum {
+  font-style: italic !important;
+  font-weight: 300 !important;
+  text-decoration: line-through !important;
+  text-decoration-thickness: 2px;
+  text-decoration-color: rgba(0,0,0,.85);
+}
+
+/* spacing below header */
+header {
+  margin-bottom: 26px;
+}
+
